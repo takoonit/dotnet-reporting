@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  report-ms:
+    image: ${DOCKER_REGISTRY-}reportms
+    build:
+      context: .
+      dockerfile: Report-MS/Dockerfile
