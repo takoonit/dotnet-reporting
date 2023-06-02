@@ -1,12 +1,9 @@
-﻿using System;
-namespace Report_MS.Models
+﻿namespace Report_MS.Models;
+
+// TODO: Refactor this to DTO 
+public class ProfileFilter
 {
-    public class ProfileFilter
-    {
-        public int? MinAge { get; set; }
-        public int? MaxAge { get; set; }
+    public string? Status { get; set; }
 
-        // Filter properties based requirements
-    }
+    // Filter properties based requirements
 }
-
