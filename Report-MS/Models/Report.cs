@@ -20,6 +20,4 @@ public class Report
     public DateTime Timestamp { get; set; }
 
     public object Data { get; set; }
-
-    public byte[] DataFile { get; set; }
 }
