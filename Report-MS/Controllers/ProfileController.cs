@@ -92,7 +92,7 @@ public class ProfileController : ControllerBase
             return File(Encoding.UTF8.GetBytes(data), contentType, fileName);
         }
 
-        return Forbid("File type not supported, Please use json or csv");
+        return BadRequest("File type not supported, Please use json or csv");
     }
 
     #endregion
