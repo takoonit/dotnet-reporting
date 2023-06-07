@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using Report_MS.Repository;
 
@@ -53,10 +51,7 @@ namespace Report_MS.Models
                 if (propertyInfo != null)
                 {
                     var idValue = propertyInfo.GetValue(entity);
-                    if (idValue != null)
-                    {
-                        return idValue.ToString();
-                    }
+                    if (idValue != null) return idValue.ToString();
                 }
 
                 throw new ArgumentException("Entity does not have a valid ID property.");
