@@ -15,9 +15,9 @@ public class Profile
 
     [RedisIdField] [Indexed] public string? Id { get; set; }
 
-    [Indexed] public string FirstName { get; set; }
+    [Indexed(Sortable = true)] public string FirstName { get; set; }
 
-    [Indexed] public string LastName { get; set; }
+    [Indexed(Sortable = true)] public string LastName { get; set; }
 
-    [Searchable] public string Status { get; set; }
+    [Indexed(Sortable = true)] public string Status { get; set; }
 }

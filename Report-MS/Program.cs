@@ -8,14 +8,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 var mongoConnectionString = builder.Configuration["MONGO_CONNECTION_STRING"];
 var mongoDatabaseName = builder.Configuration["MONGO_DATABASE_NAME"];
-var mongoCollectionName = "Reports"; // Replace with the desired collection name
+const string mongoCollectionName = "reports"; // Replace with the desired collection name
 
 // Add services to the container.
 
 builder.Services.AddHostedService<IndexCreationService>();
-builder.Services.AddSingleton(new RedisConnectionProvider(builder.Configuration["REDIS_CONNECTION_STRING"]));
 builder.Services.AddSingleton<IMongoRepository<Report>>(_ =>
     new MongoRepository<Report>(mongoConnectionString, mongoDatabaseName, mongoCollectionName));
+builder.Services.AddSingleton(new RedisConnectionProvider(builder.Configuration["REDIS_CONNECTION_STRING"]));
 
 
 builder.Services.AddControllers();
