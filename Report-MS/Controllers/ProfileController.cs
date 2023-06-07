@@ -65,7 +65,7 @@ public class ProfileController : ControllerBase
 
     #region reporting
 
-    [HttpPost("report/profiles/{fileType}")]
+    [HttpPost("report/{fileType}")]
     public async Task<IActionResult> GenerateSkillsDetailsReport([FromRoute] string fileType)
     {
         var profiles = await _profiles.Where(p => p.Status == ProfileStatus.Active).ToListAsync();
@@ -85,7 +85,7 @@ public class ProfileController : ControllerBase
 
         if (data != null)
         {
-            var fileName = $"{DateTime.Now.ToString("ddmmyyyy")}_report.{fileType}";
+            var fileName = $"{DateTime.Now:MM-dd-yyyy}_report.{fileType}";
             var report = new Report(data);
 
             await _reportRepository.Create(report).WaitAsync(new CancellationToken());
