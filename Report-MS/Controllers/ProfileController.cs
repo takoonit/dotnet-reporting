@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver.Linq;
 using Newtonsoft.Json;
 using Redis.OM;
 using Redis.OM.Searching;
@@ -84,7 +85,7 @@ public class ProfileController : ControllerBase
 
         if (data != null)
         {
-            var fileName = $"{DateTime.Now.ToShortDateString()}.{fileType}";
+            var fileName = $"{DateTime.Now.ToString("ddmmyyyy")}_report.{fileType}";
             var report = new Report(data);
 
             await _reportRepository.Create(report).WaitAsync(new CancellationToken());
